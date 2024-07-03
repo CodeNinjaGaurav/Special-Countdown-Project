@@ -1,0 +1,220 @@
+@import url('https://fonts.googleapis.com/css2?family=Unica+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Rubik+Moonrocks&family=Unica+One&display=swap');
+*{
+margin: 0;
+padding:0;
+box-sizing: border-box;
+font-family: "Unica One", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  overflow: hidden;
+}
+
+.social-icons{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: rgb(58, 28, 28);
+    font-size: 30px;
+    margin-top: 20px;
+    letter-spacing: 30px;
+padding: 10px;
+width: 100%;
+}
+
+
+
+body{
+width: 100%;
+height: 100vh;
+display: flex;
+justify-content: center;
+align-items: center;
+flex-direction: column;
+background-image: url(ftp.jpg);
+background-repeat: no-repeat;
+background-size: cover;
+color: white;
+
+}
+  
+
+
+h1{
+
+    font-family: "Rubik Moonrocks", sans-serif;
+    font-weight: 400;
+    font-style: normal; 
+    font-size: 80px;
+text-align: center;
+color: rgb(255, 255, 255);
+ margin-bottom: 10px;
+ letter-spacing: 45px;
+}
+
+h2{
+
+  
+    font-size: 60px;
+    text-align: center;
+    margin-bottom: 10px;
+    letter-spacing: 10px;
+color: white;
+}
+
+
+p{
+    
+  color: rgb(255, 255, 255); 
+  margin-bottom: 15px; 
+  font-size: 20px;
+}
+    
+  
+
+
+.countdown{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 5px 25px rgba(0, 0, 0, 0.4);
+    padding: 30px 30px;
+
+
+}
+
+.timer{
+background-color: rgba(255,255,255,0.15);
+padding: 20px;
+margin: 0 10px;
+color: black;
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+width: 100%;
+min-width: 100px;
+max-width: 160px;
+height: 100%;
+transition: all 0.2s ease-in-out;
+border: 1px solid #000;
+
+}
+ 
+.timer .time{
+
+    font-size: 40px;
+    font-weight: 700;
+    
+}
+
+
+.timer .label{
+
+    font-size: 20px;
+    font-weight: 700;
+letter-spacing: 2px;
+
+}
+
+.timer:hover{
+    background-color:  rgba(146, 134, 134, 0.452);
+    text-decoration: underline;
+    text-underline-offset: 0.2rem;/*space bw text and underline during hover*/
+}
+
+
+
+@media screen and (max-width: 1024px){
+h1{
+    font-size: 40px;
+
+}
+
+h2{
+    font-size:30px;
+}
+
+.countdown{
+    flex-wrap:wrap;
+
+}
+
+.timer{
+    max-height: 120px;
+    margin:10px ;
+}
+
+
+}
+    
+
+
+
+
+.button{
+    background-color: rgba(255,255,255,0.15);
+    border: 1px solid #000;
+    letter-spacing: 30px;
+letter-spacing: 20px;
+    margin-top: 30px;
+    padding: 10px 10px;
+
+
+}
+
+.btn{
+    width: 70px;
+    height: 50px;
+    background-color: var(--color);
+    font-size: 20px;
+    color: #ffffff;
+    border-radius: 5px;
+    
+cursor: pointer;
+}
+
+
+.button #start{
+    background: linear-gradient(0deg,rgba(0,172,238,1)0%,rgba(2,126,251,1)100%);
+    line-height: 42px;
+    padding: 0;
+    border: none;
+}
+ #start:hover{
+    background-color: rgba(2, 126, 251,1);
+    background-image: linear-gradient(0deg,rgba(2,126,251,1),#117b96 74%);
+
+    
+}
+
+
+
+
+
+.button #pause{
+    background-image: linear-gradient(315deg,#4dccc6 0%,#96e4df 74%);
+    line-height: 42px;
+    padding: 0;
+    border: none;
+}
+ #pause:hover{
+    background-color: #89d8d3;
+    background-image: linear-gradient(315deg,#89d8d3 0%,#03c8a8 74%);
+    
+}
+
+
+
+
+.button #stop{
+    background: linear-gradient(0deg,rgba(6,14,131,1) 0%,rgba(12,25,180,1) 100%);
+    line-height: 42px;
+    padding: 0;
+    border: none;
+}
+ #stop:hover{
+    background: rgb(0,3,255);
+    background: linear-gradient(0deg,rgba(0,3,255,1) 0%,rgba(2,126,251,1) 100%);
+    
+}
