@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <title>Countdown Timer</title>
+    
+    <link rel="shortcut icon" href="logo.png" type="image/x-icon">
+</head>
+
+
+<body>
+
+   
+    <h2 >ISRO</h2>
+    <p>Presents</p>
+    <h1>MARS</h1>
+    <p>Premiers in</p>
+    <div class="countdown">
+        <div class="timer">
+            <span class="time" id="timerdays">0</span>
+            <span class="label">DAYS</span>
+
+        </div>
+        <div class="timer">
+            <span class="time" id="timerhours">0</span>
+            <span class="label">Hours</span>
+        </div>
+        <div class="timer">
+            <span class="time" id="timerminutes">0</span>
+            <span class="label">Minutes</span>
+        </div>
+        <div class="timer">
+            <span class="time" id="timerseconds">0</span>
+            <span class="label">Seconds</span>
+        </div>
+    
+    </div>
+        
+        <div class="button">
+            <button id="start" class="btn" style="--color:rgb(0,172,238);"><i class="fa-solid fa-play"></i></button>
+            <button id="pause" class="btn" style="--color:#4dccc6;"><i class="fa-solid fa-pause"></i></button>
+            <button id="stop" class="btn" style="--color:rgb(6,14,131);"><i class="fa-solid fa-stop"></i></button>
+        </div>
+        
+<div class="social-icons"> 
+     
+    <i class="fa-brands fa-linkedin"></i>
+    <i class="fa-brands fa-square-x-twitter"></i>
+    <i class="fa-brands fa-youtube"></i>
+    <i class="fa-brands fa-square-whatsapp"></i>
+</div>
+
+
+    <script>
+        const eventDate = new Date("Nov 12, 2024 12:00 AM").getTime();
+        let timerInterval;
+        let paused = false;
+        let pausedTime = 0;
+
+        function updateTimer() {
+            if (paused) {
+                pausedTime += 1000; // Add 1 second to paused time
+                return;
+            }
+
+            const now = new Date().getTime() + pausedTime;
+            const timeRemaining = eventDate - now;
+
+            if (timeRemaining <= 0) {
+                clearInterval(timerInterval);
+                document.getElementById("timerdays").innerHTML = '0';
+                document.getElementById("timerhours").innerHTML = '0';
+                document.getElementById("timerminutes").innerHTML = '0';
+                document.getElementById("timerseconds").innerHTML = '0';
+                alert("event has started");
+                return;
+            }
+
+            let days = Math.floor(timeRemaining / (1000 * 60 * 60 * 24));
+            let hours = Math.floor((timeRemaining % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            let minutes = Math.floor((timeRemaining % (1000 * 60 * 60)) / (1000 * 60));
+            let seconds = Math.floor((timeRemaining % (1000 * 60)) / 1000);
+
+            document.getElementById("timerdays").innerHTML = days;
+            document.getElementById("timerhours").innerHTML = hours;
+            document.getElementById("timerminutes").innerHTML = minutes;
+            document.getElementById("timerseconds").innerHTML = seconds;
+        }
+
+        document.getElementById("start").addEventListener("click", function() {
+            if (!timerInterval) {
+                timerInterval = setInterval(updateTimer, 1000);
+            }
+            paused = false;
+            pausedTime = 0; // Reset pausedTime
+            updateTimer(); // Update timer immediately upon clicking start
+        });
+
+        document.getElementById("pause").addEventListener("click", function() {
+            clearInterval(timerInterval);
+            alert("Countdown has Paused");
+            paused = true;
+            pausedTime = eventDate - (new Date().getTime());
+            timerInterval = null; // Clear the interval so that a new one is created when resumed
+        });
+
+        document.getElementById("stop").addEventListener("click", function() {
+            clearInterval(timerInterval);
+            document.getElementById("timerdays").innerHTML = '0';
+            document.getElementById("timerhours").innerHTML = '0';
+            document.getElementById("timerminutes").innerHTML = '0';
+            document.getElementById("timerseconds").innerHTML = '0';
+            alert ("Countdown has stopped working");
+            paused = false;
+            pausedTime = 0;
+            timerInterval = null; // Clear the interval
+        });
+
+        updateTimer();
+    </script>
+</body>
+</html>
+
+
+
+
+
